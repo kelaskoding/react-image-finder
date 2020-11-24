@@ -1,17 +1,18 @@
 import React from 'react';
+import Gallery from 'react-photo-gallery';
 
 const ImageList = (props) => {
     const images = props.images.map((image) => {
-        return (
-            <p key={image.id}>
-                <img alt={image.description} src={image.urls.thumb} />
-            </p>
-        );
+        return {
+            src : image.urls.regular,
+            width : 4,
+            height : 3
+        }
     });
 
     return (
         <div>
-            {images}
+            <Gallery photos={images} />
         </div>
     );
 }
